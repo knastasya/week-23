@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Rate.scss';
 
 
@@ -11,12 +11,14 @@ export default function Rate(props) {
         backgroundColor: props.backgroundCenter,
       };
 
-      const isSelected = props.selected;
-      let selectedStyle;
-      isSelected && (selectedStyle = 'selected');
+    const [selected, setSelected] = useState('');
+
+    function handleChange() {
+        setSelected(selected ? '' : 'selected');
+    }
 
     return (
-        <section className={`rateCard ${selectedStyle}`}>
+        <section onClick={handleChange} className={`rateCard ${selected}`}>
             <h1 className='title' style={backgroundUp}>Безлимитный {props.price}</h1>
             <div className='price' style={backgroundCenter}>
                 <div className='price__container'>
@@ -24,7 +26,7 @@ export default function Rate(props) {
                     </div>
             </div>
             <div className='speed'>до {props.speed} Мбит/сек</div>
-            <div className='text'>Объём включённого трафика не ограничен</div>
+            <div className='text'>Объём включенного трафика не ограничен</div>
         </section>
     )
 }

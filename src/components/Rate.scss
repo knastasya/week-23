@@ -10,6 +10,7 @@ display: grid;
 grid-template-rows: 2fr 4fr 2fr 2.5fr;
 grid-template-columns: 1.5fr;
 justify-content: center;
+cursor: pointer;
 }
 
 .title, .price {
